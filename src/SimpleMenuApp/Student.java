@@ -13,6 +13,7 @@ public class Student {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        //the above line can be written as: if(!(o instaceof Student))
         Student student = (Student) o;
         return id.equals(student.id);
     }

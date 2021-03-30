@@ -47,7 +47,7 @@ public class SimpleMenu {
                     uiViewStudents();
                     break;
                 default:
-                    System.out.println("\nAlegeti o optiune valida :");
+                    System.out.println("\nAlegeti o optiune valida :\n");
             }
 
         }while (option != 0);
@@ -62,7 +62,7 @@ public class SimpleMenu {
 
     private void uiViewStudents() {
 
-        System.out.println("Id \tNume\tPrenume\tMedie");
+        System.out.println("Id \tNume\tPrenume\t\tVarsta");
 
         for(Student currentStudent: studentlist)
         {
@@ -71,26 +71,35 @@ public class SimpleMenu {
     }
 
     private void uiDeleteStudent(Scanner sc) {
+        System.out.println("Introduceti ID-ul studentului pe care doriti sa il stergeti: ");
         int id = Integer.parseInt(sc.nextLine());
         studentlist.remove(new Student(id));
         System.out.println("\nStudentul a fost sters cu succes!");
     }
 
     private void uiModifyStudent(Scanner sc) {
+        System.out.println("Introduceti ID-ul studentului pe care doriti sa il modificati: ");
         int id = Integer.parseInt(sc.nextLine());
         Student s = studentlist.get(studentlist.indexOf(new Student(id)));
+        System.out.println("Introduceti noul nume: ");
         s.setNume(sc.nextLine());
+        System.out.println("Introduceti noul prenume: ");
         s.setPrenume(sc.nextLine());
+        System.out.println("Introduceti noua varsta: ");
         s.setVarsta(Integer.parseInt(sc.nextLine()));
         System.out.println("\nStudentul a fost modificat cu succes!");
 
     }
 
     private void uiAddStudent(Scanner sc) {
+        System.out.println("Introduceti ID-ul studentului: ");
         int id = Integer.parseInt(sc.nextLine());
-        int varsta = Integer.parseInt(sc.nextLine());
+        System.out.println("Introduceti numele studentului: ");
         String nume = sc.nextLine();
+        System.out.println("Introduceti prenumele studentului: ");
         String prenume = sc.nextLine();
+        System.out.println("Introduceti varsta studentului: ");
+        int varsta = Integer.parseInt(sc.nextLine());
         Student student = new Student(id,nume, prenume, varsta);
         studentlist.add(student);
 
